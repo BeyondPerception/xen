@@ -82,6 +82,7 @@ static DECLARE_TASKLET(keypress_tasklet, keypress_action, 0);
 
 void handle_keypress(unsigned char key, struct cpu_user_regs *regs)
 {
+    printk("Key pressed: %c\n", key);
     struct keyhandler *h;
 
     if ( key >= ARRAY_SIZE(key_table) || !(h = &key_table[key])->fn )
